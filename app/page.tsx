@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 const sections = [
-  { id: "junior-high", name: "中学英単語", available: true },
-  { id: "high-school", name: "高校英単語", available: false },
-  { id: "toeic", name: "TOEIC英単語", available: false },
-  { id: "business", name: "ビジネス英単語", available: false },
+  { id: "junior-high", name: "中学英単語" },
+  { id: "high", name: "高校英単語" },
+  { id: "toeic", name: "TOEIC英単語" },
 ];
 
 export default function Home() {
@@ -20,7 +19,7 @@ export default function Home() {
         <CardHeader>
           <CardTitle className="text-4xl font-bold text-center">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-500">
-              毎日えいご
+              DAILY ENGLISH WORD
             </span>
           </CardTitle>
         </CardHeader>
@@ -29,28 +28,17 @@ export default function Home() {
             {sections.map((section) => (
               <motion.div
                 key={section.id}
-                whileHover={section.available ? { scale: 1.03 } : {}}
-                whileTap={section.available ? { scale: 0.98 } : {}}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <motion.button
-                  onClick={() =>
-                    section.available && router.push(`/category/${section.id}`)
-                  }
-                  className={`w-full h-24 text-lg font-semibold rounded-xl transition-all duration-300 ease-in-out shadow-md border ${
-                    section.available
-                      ? "bg-gradient-to-r from-teal-50 to-blue-50 text-gray-700 border-gray-200 cursor-pointer"
-                      : "bg-gray-100 text-gray-400 border-gray-300 cursor-not-allowed"
-                  }`}
-                  whileHover={
-                    section.available
-                      ? {
-                          background:
-                            "linear-gradient(to right, #4fd1c5, #63b3ed)",
-                          color: "white",
-                          border: "1px solid transparent",
-                        }
-                      : {}
-                  }
+                  onClick={() => router.push(`/${section.id}`)}
+                  className={`w-full h-24 text-lg font-semibold rounded-xl transition-all duration-300 ease-in-out shadow-md border ${"bg-gradient-to-r from-teal-50 to-blue-50 text-gray-700 border-gray-200 cursor-pointer"}`}
+                  whileHover={{
+                    background: "linear-gradient(to right, #4fd1c5, #63b3ed)",
+                    color: "white",
+                    border: "1px solid transparent",
+                  }}
                   transition={{
                     type: "tween",
                     duration: 0.3,
@@ -58,9 +46,6 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center justify-center h-full">
                     <span>{section.name}</span>
-                    {!section.available && (
-                      <span className="text-sm mt-1">Coming Soon</span>
-                    )}
                   </div>
                 </motion.button>
               </motion.div>
