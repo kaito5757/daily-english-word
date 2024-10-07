@@ -123,7 +123,7 @@ export default function Page({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-blue-100 to-pink-100 flex items-center justify-center pt-16 sm:pt-0">
+    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-blue-100 to-pink-100 flex items-center justify-center">
       <Toaster />
       <Card className="w-96 shadow-lg">
         <CardHeader className="bg-gradient-to-r from-teal-500 to-blue-500 rounded-t-lg">
@@ -144,11 +144,13 @@ export default function Page({
                     <div className="mb-6 text-left">
                       <p className="font-bold mb-2">間違えた単語:</p>
                       {failedWords.map((word, index) => (
-                        <div key={index} className="mb-2 text-red-600">
+                        <div key={index} className="mb-2">
                           <p>
-                            {word.question} - {word.answer}
+                            問題: {word.question}、解答: {word.answer}
                           </p>
-                          <p>あなたの回答: {word.userAnswer}</p>
+                          <p className=" text-red-600">
+                            あなたの回答: {word.userAnswer}
+                          </p>
                         </div>
                       ))}
                     </div>
