@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { getWordList } from "@/lib/wordList";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Page({
@@ -31,6 +31,8 @@ export default function Page({
   const [failedWords, setFailedWords] = useState<
     Array<{ question: string; answer: string; userAnswer: string }>
   >([]);
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const totalQuestions = currentWords?.words?.length ?? 0;
   const remainingQuestions = totalQuestions - questionCount;
@@ -91,6 +93,9 @@ export default function Page({
         ]);
       }
       setUserInput("");
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
     }
   }, [
     userInput,
@@ -195,6 +200,7 @@ export default function Page({
               </div>
               <div className="flex items-center space-x-2 mb-8">
                 <Input
+                  ref={inputRef}
                   type="text"
                   inputMode="email"
                   value={userInput}
