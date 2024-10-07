@@ -48,7 +48,7 @@ export default function Page({
     if (!availableWords) return;
 
     const newPair =
-      availableWords[Math.floor(Math.random() * availableWords?.length ?? 0)];
+      availableWords[Math.floor(Math.random() * availableWords.length)];
     setCurrentPair({ question: newPair.japanese, answer: newPair.english });
     setUsedQuestions([...usedQuestions, newPair.no]);
     setMistakes(0);
