@@ -192,16 +192,17 @@ export default function Page({
                   残り問題数: {remainingQuestions}/{totalQuestions}
                 </p>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 mb-4">
                 <Input
                   type="text"
                   value={userInput}
                   onChange={handleInputChange}
                   onKeyDown={handleKeyPress}
                   placeholder={`英単語を入力 (${currentPair.answer.length}文字)`}
-                  className="flex-grow py-2 px-4 rounded-l-full border-2 border-teal-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  className="flex-grow py-2 px-4 rounded-l-full border-2 border-teal-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base"
                   autoFocus
                   aria-label="英単語の回答を入力"
+                  style={{ fontSize: "16px" }}
                 />
                 <Button
                   onClick={checkAnswer}
@@ -210,6 +211,12 @@ export default function Page({
                   回答
                 </Button>
               </div>
+              <Button
+                onClick={() => router.push(`/${params.category}`)}
+                className="w-full bg-gray-300 text-gray-700 font-bold py-2 px-6 rounded-full transition-all hover:bg-gray-400"
+              >
+                ステージ一覧に戻る
+              </Button>
             </>
           )}
         </CardContent>
