@@ -27,11 +27,14 @@ export default function Page({ params }: { params: { category: string } }) {
         <CardHeader className="pb-0 relative">
           <motion.button
             onClick={() => router.push("/")}
-            className="absolute left-6 top-6 text-blue-600 hover:text-blue-800 transition-colors duration-200"
+            className="absolute left-6 top-9 text-blue-600 hover:text-blue-800 transition-colors duration-200"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <ArrowLeft size={24} />
+            <div className="flex">
+              <ArrowLeft size={24} className="mr-2" />
+              戻る
+            </div>
           </motion.button>
           <CardTitle className="text-4xl font-bold text-center pb-5">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-500">
