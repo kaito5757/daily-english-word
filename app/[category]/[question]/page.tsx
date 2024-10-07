@@ -195,6 +195,7 @@ export default function Page({
               <div className="flex items-center space-x-2 mb-4">
                 <Input
                   type="text"
+                  inputMode="email"
                   value={userInput}
                   onChange={handleInputChange}
                   onKeyDown={handleKeyPress}
