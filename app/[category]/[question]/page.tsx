@@ -173,17 +173,6 @@ export default function Page({
           ) : (
             <>
               <div className="text-center mb-6">
-                <p className="text-2xl font-bold mb-3 text-teal-700">
-                  問題{questionCount}: {currentPair.question}
-                </p>
-                {mistakes >= 2 && (
-                  <p className="text-md text-blue-600 mb-2">
-                    答え: {currentPair.answer}
-                  </p>
-                )}
-                <p className="text-lg font-semibold text-blue-700">
-                  スコア: {score}/{validQuestionCount}
-                </p>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 mb-2">
                   <div
                     className="h-2.5 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 transition-all duration-300 ease-in-out"
@@ -194,7 +183,17 @@ export default function Page({
                   残り問題数: {remainingQuestions}/{totalQuestions}
                 </p>
               </div>
-              <div className="flex items-center space-x-2 mb-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold mb-3 text-teal-700">
+                  問題{questionCount}: {currentPair.question}
+                </p>
+                {mistakes >= 2 && (
+                  <p className="text-md text-blue-600 mb-2">
+                    答え: {currentPair.answer}
+                  </p>
+                )}
+              </div>
+              <div className="flex items-center space-x-2 mb-8">
                 <Input
                   type="text"
                   inputMode="email"
