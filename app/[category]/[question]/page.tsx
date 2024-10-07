@@ -123,7 +123,7 @@ export default function Page({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-blue-100 to-pink-100 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-blue-100 to-pink-100 flex items-center justify-center pt-16 sm:pt-0">
       <Toaster />
       <Card className="w-96 shadow-lg">
         <CardHeader className="bg-gradient-to-r from-teal-500 to-blue-500 rounded-t-lg">
